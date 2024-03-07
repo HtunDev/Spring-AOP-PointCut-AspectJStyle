@@ -2,6 +2,9 @@ package com.HAH.admin.dao;
 
 import org.springframework.stereotype.Repository;
 
+import com.HAH.aspect.AdminAnnotation;
+
+@AdminAnnotation
 @Repository
 public class AdminDao {
 
