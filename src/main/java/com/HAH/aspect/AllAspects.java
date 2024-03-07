@@ -3,23 +3,13 @@ package com.HAH.aspect;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
 public class AllAspects {
 
-	@Pointcut("execution(* search*(..))")
-	public void searchPointCut() {
-	}
-	
-	@Pointcut("within(com..member.dao.*)")
-	public void withinPointCut() {
-		
-	}
-
-	@Before("searchPointCut() && withinPointCut()")
+	@Before("CommonPointCuts.searchPointCut() && CommonPointCuts.withinPointCut()")
 	public void beforeInvocation(JoinPoint joinPoint) {
 		System.out.println("Before Invocation");
 		System.out.println("--------------------");
