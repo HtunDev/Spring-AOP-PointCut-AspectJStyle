@@ -11,10 +11,15 @@ import org.springframework.stereotype.Component;
 public class AllAspects {
 
 	@Pointcut("execution(* search*(..))")
-	public void doPointCut() {
+	public void searchPointCut() {
+	}
+	
+	@Pointcut("within(com..member.dao.*)")
+	public void withinPointCut() {
+		
 	}
 
-	@Before("doPointCut()")
+	@Before("searchPointCut() && withinPointCut()")
 	public void beforeInvocation(JoinPoint joinPoint) {
 		System.out.println("Before Invocation");
 		System.out.println("--------------------");
